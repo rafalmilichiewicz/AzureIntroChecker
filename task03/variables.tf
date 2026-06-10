@@ -46,6 +46,7 @@ variable "storageaccount_tier" {
 
 variable "storageaccount_replication_type" {
   description = "Storage Account Replication Type"
+  type = string
 }
 
 variable "vnet_address_space" {

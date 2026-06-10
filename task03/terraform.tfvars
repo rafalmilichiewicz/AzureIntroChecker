@@ -1,8 +1,8 @@
-rg_name             = "resource_group_1"
-storageaccount_name = "a8aff6faac14b833b96feeac"
-vnet_name           = "virtual_network_1"
-subnet1_name        = "subnetname_1"
-subnet2_name        = "subnetname_2"
+rg_name             = "cmaz-35odz4yl-mod3-rg"
+storageaccount_name = "cmaz35odz4ylsa"
+vnet_name           = "cmaz-35odz4yl-mod3-vnet"
+subnet1_name        = "frontend"
+subnet2_name        = "backend"
 student_email       = "rafal_milichiewicz@epam.com"
 
 location                        = "West Europe"
