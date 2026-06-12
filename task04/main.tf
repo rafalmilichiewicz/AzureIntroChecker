@@ -82,7 +82,7 @@ resource "azurerm_network_interface" "nic" {
   resource_group_name = azurerm_resource_group.rg.name
 
   ip_configuration {
-    name                          = "internal"
+    name                          = var.nic_ip_config_name
     private_ip_address_allocation = "Dynamic"
     subnet_id                     = azurerm_subnet.subnet.id
     public_ip_address_id          = azurerm_public_ip.public_ip.id
@@ -135,7 +135,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
       host     = azurerm_public_ip.public_ip.ip_address
       user     = var.vm_admin_username
       password = var.vm_password
-      timeout  = "5m"
     }
   }
 

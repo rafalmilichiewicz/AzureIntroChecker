@@ -94,3 +94,9 @@ variable "student_email" {
   type        = string
   description = "Student Email for Creator Tag"
 }
+
+variable "nic_ip_config_name" {
+  type        = string
+  description = "NIC IP Config name"
+
+}

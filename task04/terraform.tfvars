@@ -6,6 +6,7 @@ vnet_address_space    = ["10.0.0.0/16"]
 subnet_name           = "frontend"
 subnet_address_prefix = ["10.0.1.0/24"]
 nic_name              = "cmaz-35odz4yl-mod4-nic"
+nic_ip_config_name    = "internal"
 
 nsg_name      = "cmaz-35odz4yl-mod4-nsg"
 nsg_rule_http = "AllowHTTP"
