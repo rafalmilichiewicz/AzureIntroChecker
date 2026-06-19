@@ -16,7 +16,7 @@ sql_admin_username = "sqladmin"
 sql_fwr_name       = "allow-verification-ip"
 
 
-allowed_ip_address = "93.159.27.134"
+allowed_ip_address = "18.153.146.156"
 
 asp_sku            = "P0v3"
 app_dotnet_version = "8.0"
