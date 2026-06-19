@@ -15,7 +15,6 @@ resource "azurerm_mssql_server" "main" {
   version                      = "12.0"
   administrator_login          = var.sql_admin_username
   administrator_login_password = random_password.sql_admin.result
-  minimum_tls_version          = "1.2"
 
   tags = var.tags
 }
