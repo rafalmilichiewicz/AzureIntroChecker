@@ -1,5 +1,5 @@
 
-location      = "East US"
+location      = "France Central"
 student_email = "rafal_milichiewicz@epam.com"
 
 name_prefix = "cmaz-35odz4yl-mod6"
