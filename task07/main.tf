@@ -35,7 +35,7 @@ resource "azurerm_storage_account" "sa" {
 
 import {
   to = azurerm_storage_container.container
-  id = "${var.sa_id}/blobServices/default/containers/${var.container_name}"
+  id = "/subscriptions/29002178-a3a8-4fe4-8aeb-c9cdc3942cf7/resourceGroups/cmtr-35odz4yl-mod7-rg/providers/Microsoft.Storage/storageAccounts/cmtr35odz4ylmod7sa/blobServices/default/containers/mycontainer"
 }
 
 resource "azurerm_storage_container" "container" {
@@ -47,7 +47,7 @@ resource "azurerm_storage_container" "container" {
 
 import {
   to = azurerm_storage_blob.blob
-  id = "https://${var.sa_name}.blob.core.windows.net/${var.container_name}/${var.blob_file}"
+  id = "https://cmtr35odz4ylmod7sa.blob.core.windows.net/mycontainer/blob.txt"
 }
 
 resource "azurerm_storage_blob" "blob" {
