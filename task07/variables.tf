@@ -28,6 +28,11 @@ variable "blob_file" {
   description = "Filename in Storage Account"
 }
 
+variable "container_name" {
+  type        = string
+  description = "Storage Container name (within the Storage Account) that holds the blob file"
+}
+
 variable "fd_profile_name" {
   type        = string
   description = "Azure CDN Front Door Profile Name"

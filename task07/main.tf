@@ -33,11 +33,37 @@ resource "azurerm_storage_account" "sa" {
 }
 
 
+import {
+  to = azurerm_storage_container.container
+  id = "${var.sa_id}/blobServices/default/containers/${var.container_name}"
+}
+
+resource "azurerm_storage_container" "container" {
+  name                  = var.container_name
+  storage_account_id    = azurerm_storage_account.sa.id
+  container_access_type = "private"
+}
+
+
+import {
+  to = azurerm_storage_blob.blob
+  id = "https://${var.sa_name}.blob.core.windows.net/${var.container_name}/${var.blob_file}"
+}
+
+resource "azurerm_storage_blob" "blob" {
+  name                   = var.blob_file
+  storage_account_name   = azurerm_storage_account.sa.name
+  storage_container_name = azurerm_storage_container.container.name
+  type                   = "Block"
+}
+
+
 module "cdn" {
   source = "./modules/cdn"
 
   rg_name           = azurerm_resource_group.rg.name
   storage_blob_host = azurerm_storage_account.sa.primary_blob_host
+  container_name    = azurerm_storage_container.container.name
 
   fd_profile_name      = var.fd_profile_name
   fd_profile_sku       = var.fd_profile_sku

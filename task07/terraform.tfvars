@@ -9,6 +9,8 @@ sa_id   = "/subscriptions/29002178-a3a8-4fe4-8aeb-c9cdc3942cf7/resourceGroups/cm
 
 blob_file = "blob.txt"
 
+container_name = "mycontainer"
+
 fd_profile_name      = "cmtr-35odz4yl-mod7-fd-profile"
 fd_profile_sku       = "Standard_AzureFrontDoor"
 fd_endpoint_name     = "cmtr-35odz4yl-mod7-fd-endpoint"
