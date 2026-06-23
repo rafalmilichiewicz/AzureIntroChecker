@@ -13,6 +13,11 @@ variable "container_name" {
   description = "Storage Container name that holds the blob file, used as the Front Door route's origin path"
 }
 
+variable "blob_file" {
+  type        = string
+  description = "Filename in Storage Account"
+}
+
 variable "fd_profile_name" {
   type        = string
   description = "Azure CDN Front Door Profile Name"
