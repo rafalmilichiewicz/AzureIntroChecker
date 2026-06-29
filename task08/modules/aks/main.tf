@@ -20,8 +20,11 @@ resource "azurerm_kubernetes_cluster" "this" {
     secret_rotation_enabled = true
   }
 
+  oidc_issuer_enabled = true
+
   tags = var.tags
 }
+
 
 # Allows AKS (via kubelet identity) to pull images from ACR
 resource "azurerm_role_assignment" "acr_pull" {

@@ -41,7 +41,7 @@ module "acr" {
   tags                = local.common_tags
   git_repository_url  = var.git_repository_url
   git_pat             = var.git_pat
-  dockerfile_path     = "task08/application/Dockerfile"
+  dockerfile_path     = "Dockerfile"
   image_name          = var.image_name
   image_tag           = var.image_tag
 }
@@ -62,8 +62,8 @@ module "aci" {
   redis_url           = module.redis.hostname
   redis_pwd           = module.redis.primary_access_key
   tags                = local.common_tags
-  memory              = 2
-  cpu                 = 1
+  memory              = 4
+  cpu                 = 2
 
   depends_on = [module.acr, module.redis]
 }

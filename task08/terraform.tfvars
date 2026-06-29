@@ -12,8 +12,8 @@ redis_capacity   = 1
 redis_sku        = "Standard"
 redis_sku_family = "C"
 
-redis_hostname_secret_name    = "redis-hostname"
-redis_primary_key_secret_name = "redis-primary-key"
+redis_hostname_secret_name    = "redishostname"
+redis_primary_key_secret_name = "redisprimarykey"
 
 
 keyvault_sku = "standard"
@@ -24,5 +24,5 @@ aci_sku = "Standard"
 
 aks_node_pool_name      = "default"
 aks_node_pool_count     = 2
-aks_node_pool_size      = "Standard_DS2_v2"
+aks_node_pool_size      = "Standard_B2ls_v2"
 aks_node_pool_disk_type = "Managed"
