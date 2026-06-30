@@ -6,6 +6,7 @@ git_repository_url = "https://github.com/rafalmilichiewicz/AzureIntroChecker"
 
 image_name = "cmtr-35odz4yl-mod8-app"
 image_tag  = "latest"
+base_name  = "redis-flask-app"
 
 
 redis_capacity   = 2

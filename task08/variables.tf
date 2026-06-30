@@ -96,3 +96,8 @@ variable "aks_node_pool_disk_type" {
   description = "AKS Default Node Pool OS Disk Type"
   type        = string
 }
+
+variable "base_name" {
+  description = "Base Name of App"
+  type        = string
+}

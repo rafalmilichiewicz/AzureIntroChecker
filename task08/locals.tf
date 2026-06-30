@@ -11,7 +11,7 @@ locals {
 
   redis_name = format("%s-redis", var.resources_name_prefix)
 
-  service_name = replace(var.image_name, "-app", "-service")
+  service_name = format("%s-service", var.base_name)
   common_tags = {
     Creator = var.student_email
   }

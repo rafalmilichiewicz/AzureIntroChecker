@@ -87,7 +87,7 @@ module "aks" {
   tags                = local.common_tags
   tenant_id           = data.azurerm_client_config.current.tenant_id
 
-  depends_on = [module.acr, module.keyvault]
+  depends_on = [module.acr, module.keyvault, module.redis]
 }
 
 
@@ -111,12 +111,12 @@ resource "kubectl_manifest" "deployment" {
     image_tag        = var.image_tag
   })
 
-  wait_for {
-    field {
-      key   = "status.availableReplicas"
-      value = "1"
-    }
-  }
+  # wait_for {
+  #   field {
+  #     key   = "status.availableReplicas"
+  #     value = "1"
+  #   }
+  # }
 
   depends_on = [kubectl_manifest.secret_provider]
 }
