@@ -85,7 +85,7 @@ module "aks" {
   acr_id              = module.acr.id
   key_vault_id        = module.keyvault.id
   tags                = local.common_tags
-  tenant_id          = data.azurerm_client_config.current.tenant_id
+  tenant_id           = data.azurerm_client_config.current.tenant_id
 
   depends_on = [module.acr, module.keyvault]
 }
@@ -137,7 +137,7 @@ resource "kubectl_manifest" "service" {
 
 data "kubernetes_service" "app" {
   metadata {
-    name = "redis-flask-app-service"
+    name = local.service_name
   }
 
   depends_on = [kubectl_manifest.service]

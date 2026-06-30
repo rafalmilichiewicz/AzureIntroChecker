@@ -49,8 +49,8 @@ variable "key_vault_id" {
 }
 
 variable "tenant_id" {
-  type = string
   description = "Tenant ID"
+  type        = string
 }
 
 variable "tags" {
