@@ -121,7 +121,7 @@ module "k8s" {
   acr_login_server           = module.acr.login_server
   image_name                 = var.docker_image_name
   image_tag                  = var.docker_image_tag
-  aks_kv_access_identity_id  = module.aks.kv_secrets_provider_client_id
+  aks_kv_access_identity_id  = module.aks.kv_identity_client_id
   kv_name                    = local.keyvault_name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
   redis_url_secret_name      = var.redis_hostname_secret_name
