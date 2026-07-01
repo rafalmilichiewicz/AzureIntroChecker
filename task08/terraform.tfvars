@@ -13,8 +13,8 @@ redis_capacity   = 2
 redis_sku        = "Basic"
 redis_sku_family = "C"
 
-redis_hostname_secret_name    = "redis-primary-key"
-redis_primary_key_secret_name = "redis-hostname"
+redis_hostname_secret_name    = "redis-hostname"
+redis_primary_key_secret_name = "redis-primary-key"
 
 
 keyvault_sku = "standard"
