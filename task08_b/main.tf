@@ -32,6 +32,8 @@ module "storage" {
   source_dir               = "${path.module}/application"
   sas_validity_hours       = var.sas_validity_hours
   tags                     = local.common_tags
+
+  depends_on = [module.keyvault]
 }
 
 module "aci_redis" {

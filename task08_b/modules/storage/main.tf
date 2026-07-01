@@ -29,6 +29,10 @@ resource "azurerm_storage_container" "this" {
   name                  = var.container_name
   storage_account_name  = azurerm_storage_account.this.name
   container_access_type = var.container_access_type
+
+  depends_on = [
+    azurerm_storage_account.this
+  ]
 }
 
 resource "azurerm_storage_blob" "app_archive" {
@@ -37,6 +41,10 @@ resource "azurerm_storage_blob" "app_archive" {
   storage_container_name = azurerm_storage_container.this.name
   type                   = "Block"
   source                 = data.archive_file.app_archive.output_path
+
+  depends_on = [
+    azurerm_storage_container.this
+  ]
 }
 
 data "azurerm_storage_account_blob_container_sas" "this" {
@@ -55,4 +63,9 @@ data "azurerm_storage_account_blob_container_sas" "this" {
     delete = false
     list   = true
   }
+
+  depends_on = [
+    azurerm_storage_container.this,
+    azurerm_storage_account.this
+  ]
 }

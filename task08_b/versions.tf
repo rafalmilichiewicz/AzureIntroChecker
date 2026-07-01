@@ -30,7 +30,12 @@ terraform {
 }
 
 provider "azurerm" {
-  features {}
+  features {
+    # https://github.com/hashicorp/terraform-provider-azurerm/issues/32474
+    # storage {
+    #   data_plane_available = false
+    # }
+  }
 }
 
 provider "kubectl" {
