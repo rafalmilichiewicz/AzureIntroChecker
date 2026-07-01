@@ -1,0 +1,40 @@
+resource "kubectl_manifest" "secret_provider" {
+  yaml_body                  = templatefile("${var.manifests_path}/secret-provider.yaml.tftpl", {
+    aks_kv_access_identity_id  = var.aks_kv_access_identity_id
+    kv_name                    = var.kv_name
+    tenant_id                  = var.tenant_id
+    redis_url_secret_name      = var.redis_url_secret_name
+    redis_password_secret_name = var.redis_password_secret_name
+  })
+}
+
+resource "kubectl_manifest" "deployment" {
+  yaml_body        = templatefile("${var.manifests_path}/deployment.yaml.tftpl", {
+    acr_login_server = var.acr_login_server
+    app_image_name   = var.image_name
+    image_tag        = var.image_tag
+  })
+
+  wait_for {
+    field {
+      key   = "status.availableReplicas"
+      value = "1"
+    }
+  }
+
+  depends_on = [kubectl_manifest.secret_provider]
+}
+
+resource "kubectl_manifest" "service" {
+  yaml_body = file("${var.manifests_path}/service.yaml")
+
+  depends_on = [kubectl_manifest.deployment]
+}
+
+data "kubernetes_service" "app_service" {
+  metadata {
+    name = "redis-flask-app-service"
+  }
+
+  depends_on = [kubectl_manifest.service]
+}
